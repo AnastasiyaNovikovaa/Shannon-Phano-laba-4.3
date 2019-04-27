@@ -8,12 +8,12 @@ using namespace std;
 		{
 	   
 		   public:
-			Shannon_Phano_is_perfect(string&); //конструктор, кодирование
+			Shannon_Phano_is_perfect(string&); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, РєРѕРґРёСЂРѕРІР°РЅРёРµ
 			~Shannon_Phano_is_perfect() {};
-			string print_code(string &str);     //вывод кода и полезной информации
-			string decode(string &str);     //декодирование
-			void get_table();               //красивая табличка с результатом
-			string get_codes_fano_list(size_t index) { return list_for_sorting.get_code_list(index); } //для юнитиков
+			string print_code(string &str);     //РІС‹РІРѕРґ РєРѕРґР° Рё РїРѕР»РµР·РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё
+			string decode(string &str);     //РґРµРєРѕРґРёСЂРѕРІР°РЅРёРµ
+			void get_table();               //РєСЂР°СЃРёРІР°СЏ С‚Р°Р±Р»РёС‡РєР° СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј
+			string get_codes_fano_list(size_t index) { return list_for_sorting.get_code_list(index); } //РґР»СЏ СЋРЅРёС‚РёРєРѕРІ
 
 		    private:
 
