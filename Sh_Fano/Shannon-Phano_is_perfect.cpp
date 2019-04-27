@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <stdlib.h>
 
-Shannon_Phano_is_perfect::Shannon_Phano_is_perfect(string &str)//кодировка
+Shannon_Phano_is_perfect::Shannon_Phano_is_perfect(string &str)//РєРѕРґРёСЂРѕРІРєР°
 {
 	
 	
@@ -12,19 +12,19 @@ Shannon_Phano_is_perfect::Shannon_Phano_is_perfect(string &str)//кодировка
 	{
 		throw std::exception("String is empty :c");
 	}
-	while (i != str.length()) //заполняем дерево элементами  
+	while (i != str.length()) //Р·Р°РїРѕР»РЅСЏРµРј РґРµСЂРµРІРѕ СЌР»РµРјРµРЅС‚Р°РјРё  
 	{
 		Map.insert(str[i]);
 		i++;
 	}
-	list_for_sorting = Map.get_keys();  //забивка списка
-	list_for_sorting.sorting(list_for_sorting.get_front(), list_for_sorting.get_back()); //сортируем список по возрастанию частот
-	list_for_sorting.make_group(list_for_sorting.get_front(), list_for_sorting.get_back()); //группируем по среднему значению частот
+	list_for_sorting = Map.get_keys();  //Р·Р°Р±РёРІРєР° СЃРїРёСЃРєР°
+	list_for_sorting.sorting(list_for_sorting.get_front(), list_for_sorting.get_back()); //СЃРѕСЂС‚РёСЂСѓРµРј СЃРїРёСЃРѕРє РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ С‡Р°СЃС‚РѕС‚
+	list_for_sorting.make_group(list_for_sorting.get_front(), list_for_sorting.get_back()); //РіСЂСѓРїРїРёСЂСѓРµРј РїРѕ СЃСЂРµРґРЅРµРјСѓ Р·РЅР°С‡РµРЅРёСЋ С‡Р°СЃС‚РѕС‚
 	for (int j = 0; j < list_for_sorting.get_size(); j++)
-		Map.set_code(list_for_sorting.get_code_list(j), list_for_sorting.get_data_list(j));//переносим все в мапу
+		Map.set_code(list_for_sorting.get_code_list(j), list_for_sorting.get_data_list(j));//РїРµСЂРµРЅРѕСЃРёРј РІСЃРµ РІ РјР°РїСѓ
 }
 
-string Shannon_Phano_is_perfect::print_code(string &str)// вывод кода
+string Shannon_Phano_is_perfect::print_code(string &str)// РІС‹РІРѕРґ РєРѕРґР°
 {
 	string code_Shannon_Phano;
 	size_t i = 0;
@@ -34,17 +34,17 @@ string Shannon_Phano_is_perfect::print_code(string &str)// вывод кода
 		code_Shannon_Phano = code_Shannon_Phano + Map.get_code(str[i]);
 		i++;
 	}
-	cout << "Объем исходной фразы:" << 8 * str.length() << "бит";
+	cout << "РћР±СЉРµРј РёСЃС…РѕРґРЅРѕР№ С„СЂР°Р·С‹:" << 8 * str.length() << "Р±РёС‚";
 	cout << endl;
-	cout << "Объем закодированной фразы:" << code_Shannon_Phano.size() << "бит";
+	cout << "РћР±СЉРµРј Р·Р°РєРѕРґРёСЂРѕРІР°РЅРЅРѕР№ С„СЂР°Р·С‹:" << code_Shannon_Phano.size() << "Р±РёС‚";
 	cout << endl;
-	cout << "Коэффициент сжатия:" << (float)(8 * str.length())/ (code_Shannon_Phano.size() );
+	cout << "РљРѕСЌС„С„РёС†РёРµРЅС‚ СЃР¶Р°С‚РёСЏ:" << (float)(8 * str.length())/ (code_Shannon_Phano.size() );
 	cout << endl;
 	cout << code_Shannon_Phano;
 	return code_Shannon_Phano;
 }
 
-string Shannon_Phano_is_perfect::decode(string &str)//декодирование
+string Shannon_Phano_is_perfect::decode(string &str)//РґРµРєРѕРґРёСЂРѕРІР°РЅРёРµ
 {
 	string decode_of_string;
 
@@ -53,11 +53,11 @@ string Shannon_Phano_is_perfect::decode(string &str)//декодирование
 		for (int j = 0; j < list_for_sorting.get_size(); j++)
 		{
 			int size = 0;
-			if (list_for_sorting.compare_str(str, list_for_sorting.get_code_list(j), size))//код верный
+			if (list_for_sorting.compare_str(str, list_for_sorting.get_code_list(j), size))//РєРѕРґ РІРµСЂРЅС‹Р№
 			{
 				std::cout << list_for_sorting.get_data_list(j);
 				decode_of_string += list_for_sorting.get_data_list(j);
-				str.erase(0, size);   //стираем
+				str.erase(0, size);   //СЃС‚РёСЂР°РµРј
 			}
 		}
 		
@@ -71,6 +71,7 @@ void Shannon_Phano_is_perfect::get_table()
 {
 	list_for_sorting.print();
 }
+
 
 
 
