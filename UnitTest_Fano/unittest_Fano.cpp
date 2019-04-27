@@ -12,7 +12,7 @@ namespace UnitTest_Fano
 		
 		TEST_METHOD(encode_test_russian)
 		{
-			string stri = "ÿ ξχενό λώαλώ λύςθ";
+			string stri = "Ρ ΠΎΡ‡ΠµΠ½Ρ Π»ΡΠ±Π»Ρ Π»ΡΡ‚ΠΈ";
 			Shannon_Phano_is_perfect str(stri);
 			str.print_code(stri);
 			string check = "01110101010111010111000111000100001101101000110010001111100001001";
@@ -47,7 +47,7 @@ namespace UnitTest_Fano
 
 		TEST_METHOD(decode_test_russian)
 		{
-			string stri = "ÿ ξχενό λώαλώ λύςθ";
+			string stri = "Ρ ΠΎΡ‡ΠµΠ½Ρ Π»ΡΠ±Π»Ρ Π»ΡΡ‚ΠΈ";
 			Shannon_Phano_is_perfect str(stri);
 			string decodeg = str.print_code(stri);
 			Assert::AreEqual(stri, str.decode(decodeg));
